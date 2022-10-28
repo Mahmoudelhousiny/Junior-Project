@@ -1,0 +1,547 @@
+/* start variables */
+:root {
+  --main-color: #0b111e;
+  --sec-color: #ff5a0e;
+  --padding: 150px;
+}
+/* end variables */
+/* start global rules */
+* {
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body {
+  font-family: "Readex Pro", sans-serif;
+  background-color: var(--main-color);
+}
+ul {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+}
+.container {
+  margin: 0 auto;
+  padding: 0 15px;
+}
+/* small */
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+/* medium */
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+/* large */
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+/* end global rules */
+/* start header */
+header {
+  border-bottom: 1px solid gray;
+  position: fixed;
+  width: 100%;
+  background-color: #0b111e;
+  z-index: 5;
+}
+header .container {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+header .logo a {
+  color: var(--sec-color);
+  font-size: 1.5em;
+  font-weight: bold;
+}
+header nav {
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+}
+header nav ul {
+  display: none;
+}
+@media (min-width: 768px) {
+  header nav ul{
+    display: flex;
+    gap: 30px;
+  }
+}
+header nav ul li a {
+  color: #fff;
+}
+header nav ul .active,
+header nav ul li a:hover {
+  color: var(--sec-color);
+}
+header .icon {
+  position: absolute;
+  left: 20%;
+}
+header .icon .fa-bars {
+  color: #fff;
+  display: none;
+}
+header .icon .fa-bars:hover + nav ul{
+  display: flex;
+}
+@media (max-width: 767px) {
+  header .icon .fa-bars{
+    display: block;
+  }
+}
+/* end header */
+/* start section */
+.section {
+  padding-top: 100px;
+  padding-bottom: var(--padding);
+}
+.section .container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.section .container .icons svg {
+  animation-name: change-transform;
+  animation-duration: 0.9s;
+  animation-iteration-count: infinite;
+}
+@keyframes change-transform {
+  from {
+    rotate: 0deg;
+  }
+  to {
+    rotate: -360deg;
+  }
+}
+.section .container .text {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  text-align: center;
+}
+.section .container .text h3 {
+  color: #fff;
+  font-size: 1.5em;
+}
+.section .container .text span {
+  color: #fff;
+  font-size: 2em;
+}
+.section .container .text .img img {
+  max-width: 70%;
+}
+.section .container .ahmed {
+  position: relative;
+  flex: 1;
+  text-align: center;
+}
+.section .container .ahmed::before {
+  content: "";
+  position: absolute;
+  width: 65%;
+  height: 110%;
+  background-color: #999;
+  left: 100px;
+  top: -20px;
+  z-index: -1;
+  border-top-right-radius: 25%;
+  border-top-left-radius: 25%;
+}
+@media (max-width: 767px) {
+  .section .container .ahmed::before{
+    left: 50px;
+  }
+}
+.section .container .ahmed img {
+  max-width: 50%;
+  z-index: 2;
+}
+/* end section */
+/* start location */
+.filter,
+.location {
+  position: relative;
+  padding-bottom: var(--padding);
+}
+.location .container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.location .text,
+.filter .text,
+.animation .text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+.location .text h2,
+.filter .text h2,
+.animation .text h2 {
+  color: var(--sec-color);
+  font-size: 2em;
+  font-weight: normal;
+}
+.location .text .fa-angles-down,
+.filter .text .fa-angles-down,
+.animation .text .fa-angles-down {
+  font-size: 1.3em;
+  color: #999;
+  transition: 0.5s;
+}
+.location .text .fa-angles-down:hover,
+.filter .text .fa-angles-down:hover,
+.animation .text .fa-angles-down:hover{
+  transform: translateY(40%);
+}
+.location .container .slides {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px;
+  text-align: center;
+}
+.location .container .slides .fa-arrow-left {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  left: -40px;
+  color: #eee;
+  font-size: 1.2em;
+}
+.fa-arrow-left:before {
+  content: "\f060";
+  padding: 10px;
+  background-color: var(--sec-color);
+  border-radius: 50%;
+}
+.location .container .slides .fa-arrow-right {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  right: -40px;
+  color: #eee;
+  font-size: 1.2em;
+}
+.fa-arrow-right:before {
+  content: "\f061";
+  padding: 10px;
+  background-color: var(--sec-color);
+  border-radius: 50%;
+}
+@media (max-width: 768px) {
+  .location .container .slides {
+    flex-direction: column;
+    gap: 50px;
+  }
+  .location .container .slides .fa-arrow-right{
+    right: 0;
+  }
+  .location .container .slides .fa-arrow-left{
+    left: 0;
+  }
+}
+.location .container .slides .square {
+  padding: 40px;
+  background-color: #fffef2;
+  position: relative;
+}
+.location .container .slides .square::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #fffef2;
+  top: 0px;
+  left: 0px;
+  rotate: -10deg;
+  z-index: -1;
+  transition: 0.7s;
+}
+.location .container .slides .square:hover::before {
+  rotate: 10deg;
+}
+.location .container .slides .square h2 {
+  color: #ff5a0e;
+  font-weight: bold;
+  font-size: 2em;
+}
+.location .container .slides .square p {
+  padding: 15px 0;
+}
+.location .container .slides .square button {
+  margin-top: 15px;
+  outline: none;
+  border: none;
+}
+.location .container .slides .square button a {
+  padding: 15px;
+  background-color: #ff5a0e;
+  border-radius: 5%;
+  color: #fff;
+  transition: 0.3s;
+}
+.location .container .slides .square button a:hover {
+  color: #333;
+}
+/* end location */
+/* start filter */
+.filter .options {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-top: 20px;
+  width: 100%;
+}
+.filter .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.filter .options a {
+  color: #999;
+}
+.filter .images {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+.filter .images img {
+  max-width: 30%;
+}
+@media (max-width: 767px){
+  .filter .images{
+    flex-direction: column;
+  }
+  .filter .images img{
+    max-width: 70%;
+  }
+}
+/* end filter */
+/* start animation */
+.animation {
+  position: relative;
+  padding-bottom: 150px;
+  border-bottom: 1px solid gray;
+}
+.animation .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 40px;
+}
+.animation .images {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 30px;
+}
+.animation .images .one::before {
+  position: absolute;
+  content: "انا صورة";
+  top: 15px;
+  right: 30px;
+  width: 100px;
+  height: 40px;
+  color: #fff;
+  line-height: 1.5;
+  font-size: 1.5em;
+  background-color: #ffffff42;
+  transition: 0.3s;
+  text-align: center;
+}
+.animation .images .two::before {
+  position: absolute;
+  content: "انا صورة";
+  top: 15px;
+  right: 35%;
+  width: 100px;
+  height: 40px;
+  color: #fff;
+  line-height: 1.5;
+  font-size: 1.5em;
+  background-color: #ffffff42;
+  transition: 0.3s;
+  text-align: center;
+}
+.animation .images .three::before {
+  position: absolute;
+  content: "انا صورة";
+  top: 15px;
+  left: 30px;
+  width: 100px;
+  height: 40px;
+  color: #fff;
+  line-height: 1.5;
+  font-size: 1.5em;
+  background-color: #ffffff42;
+  transition: 0.3s;
+  text-align: center;
+}
+@media (max-width: 767px){
+  .animation .images{
+    flex-direction: column;
+  }
+  .animation .images .one,
+  .animation .images .two,
+  .animation .images .three{
+    max-width: 50%;
+  }
+  .animation .images .one::before,
+  .animation .images .two::before,
+  .animation .images .three::before{
+    visibility: hidden;
+  }
+}
+.animation .images .one:hover::before,
+.animation .images .two:hover::before,
+.animation .images .three:hover::before {
+  color: #ff5a0e;
+}
+.animation .images img {
+  max-width: 100%;
+}
+.animation .container .info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+.animation .container .info label {
+  color: #fff;
+  background-color: transparent;
+  border: 1px solid #444;
+  border-radius: 14px;
+  padding: 10px;
+}
+.animation .container .info input {
+  caret-color: var(--sec-color);
+  color: #444;
+  padding: 15px;
+  border-radius: 14px;
+  outline: none;
+  border: 1px solid #333;
+  background-color: transparent;
+}
+.animation .container .addition {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.animation .container .addition button,
+.animation .container .table button,
+.animation .container .call-us button {
+  outline: none;
+  border: none;
+  background-color: transparent;
+}
+.animation .container .addition button a:hover,
+.animation .container .call-us button a:hover,
+.animation .container .table button a:hover {
+  color: #333;
+}
+.animation .container .addition button a,
+.animation .container .call-us button a,
+.animation .container .table button a {
+  transition: 0.3s;
+  text-decoration: none;
+  color: #fff;
+  background-color: #ff5c03;
+  padding: 10px 30px;
+  border-radius: 50px;
+}
+.animation .container .table {
+  display: contents;
+  text-align: center;
+}
+.animation .container .table table {
+  padding: 15px;
+  color: #fff;
+  border-bottom: 2px solid;
+  line-height: 4;
+}
+.animation .container .table table thead tr th,
+.animation .container .table table tbody tr th {
+  background-color: var(--sec-color);
+}
+.animation .container .call-us {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+}
+.animation .container .call-us h2 {
+  color: #fff;
+  font-size: 2.4em;
+}
+.animation .container .call-us form {
+  display: grid;
+  gap: 30px;
+  width: 50%;
+}
+.animation .container .call-us form input {
+  caret-color: var(--sec-color);
+  padding: 15px;
+  border-radius: 15px;
+  outline: none;
+  border: none;
+}
+.animation .container .call-us form input::placeholder {
+  color: var(--sec-color);
+}
+.animation .container .call-us button a {
+  background-color: #ff5c03;
+  color: #fff;
+  padding: 15px 150px;
+  border-radius: 15px;
+}
+/* end animation */
+/* start footer */
+footer {
+  position: relative;
+  padding: 50px;
+}
+footer .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 5px;
+}
+footer .container .icons {
+  color: gray;
+  font-size: 2em;
+}
+footer .container p {
+  color: gray;
+}
+footer .container h2 {
+  color: var(--sec-color);
+}
+/* end footer */
